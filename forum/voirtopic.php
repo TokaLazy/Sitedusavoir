@@ -95,9 +95,9 @@ echo '<ul class="fildariane">
 
 //On affiche les pages 1-2-3 etc...
 
-echo '<p class="pagination">';
+echo '<ul class="pagination">';
            paginationListe($page ,$nombreDePages, 'voirtopic.php?t='.$topic->id()) ;
-echo'</p>';
+echo '</ul>';
 
 
 $premierMessageAafficher = ($page - 1) * $nombreDeMessagesParPage;
@@ -236,9 +236,9 @@ else
             </div>';
        }
 
-    echo '<p class="pagination">';
+    echo '<ul class="pagination">';
            paginationListe($page ,$nombreDePages, 'voirtopic.php?t='.$topic->id());
-    echo'</p>';
+    echo'</ul>';
 
     if (Membre::verif_auth($forum->auth_post()))
     {

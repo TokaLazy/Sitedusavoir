@@ -48,9 +48,9 @@
 
 	//On affiche les pages 1-2-3, etc.
 
-	echo '<p class="pagination">';
+	echo '<ul class="pagination">';
            paginationListe($page ,$nombreDePages, 'voirforum.php?f='.$forum->id());
-	echo '</p>';
+	echo '</ul>';
 
 	$premierMessageAafficher = ($page - 1) * $nombreDeMessagesParPage;
 
@@ -303,9 +303,9 @@
 
 	//On affiche les pages 1-2-3, etc.
 
-	echo '<p class="pagination">';
+	echo '<ul class="pagination">';
           paginationListe($page ,$nombreDePages, 'voirforum.php');
-	echo '</p>';
+	echo '</ul>';
 
 echo '</div>';
 include "../includes/footer.php";

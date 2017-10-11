@@ -31,9 +31,9 @@ $nbre_pages = ceil($nombres_articles / $articles_par_page);
 ?>
 
 
-<p class="page">
-      <?php paginationListe($page ,$nbre_pages, 'index.php'); ?>
-</p>
+<ul class="pagination">
+  <?php paginationListe($page ,$nbre_pages, 'index.php'); ?>
+</ul>
 
 <?php
 
@@ -55,8 +55,8 @@ if(!empty($infosArticles))
 		$managerCategorie = new ManagerCategorie($bdd);
 		$infosCategorie = $managerCategorie->infosCategorie($article->cat());
 		$categorie = new Categorie($infosCategorie);
-	  
-	    echo 
+
+	    echo
 	      '<div class="tutos">
 	            <div class="banniere">
 	                <img style="width:300px; height: 225px ;" src="../contenus/bannieres/'.$article->banniere().'" alt="banniere"/>
@@ -74,7 +74,7 @@ if(!empty($infosArticles))
 		                    echo '<span class="auteur-tuto"><a href="../forum/voirprofil.php?m='.$auteur->membre().'">'.$auteur->pseudo().'</a></span>';
                         }
 	               echo '<span class="cat-tuto">'.$categorie->nom().'</span>
-	            </div>  
+	            </div>
 
 
 	       </div>';
@@ -82,18 +82,16 @@ if(!empty($infosArticles))
 }
 else
 {
-	
+
         echo '<p>  Il n y \' a aucun articles actuelement Sur le site
 	           <p>';
 }
 
 ?>
 
-<p class="pagination">
-
-<?php   paginationListe($page ,$nbre_pages, 'index.php');  ?>
-
-</p>
+<ul class="pagination">
+  <?php paginationListe($page ,$nbre_pages, 'index.php'); ?>
+</ul>
 
 </div>
 

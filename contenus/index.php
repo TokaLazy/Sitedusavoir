@@ -29,7 +29,7 @@ include("../includes/menu.php");
 $managerContenu = new ManagerContenu($bdd);
 $managerAuteur = new ManagerAuteur($bdd);
 $managerCategorie = new ManagerCategorie($bdd);
-    
+
 $type = (!empty($_POST['type']))?$_POST['type']:'tutoriel';
 $page = (!empty($_GET['page']))?$_GET['page']:1;
 $contenus_par_page = 20 ;
@@ -40,10 +40,9 @@ $nbre_pages = ceil($nombres_contenus / $contenus_par_page);
 ?>
 
 
-<p class="page">
-<?php  paginationListe($page ,$nbre_pages, 'index.php'); ?>
-
-</p>
+<ul class="pagination">
+  <?php paginationListe($page ,$nbre_pages, 'index.php'); ?>
+</ul>
 
 <?php
 
@@ -62,8 +61,8 @@ if(!empty($infosContenus))
 			$dossier = 'tutoriels/lire.php?tuto=';
 		else
 			$dossier = 'blog/lire.php?article=';
-	 
-	  echo 
+
+	  echo
 	      '<div class="tutos">
 	            <div class="banniere">
 	                <img src="bannieres/'.$contenu->banniere().'" alt="banniere" style="width:300px; height: 225px ;"/>
@@ -83,7 +82,7 @@ if(!empty($infosContenus))
                         $cat = new Categorie($donnneesCat);
 
 	               echo '<span class="cat-tuto">'.$cat->nom().'</span>
-	            </div>  
+	            </div>
 
 
 	       </div>';
@@ -91,18 +90,16 @@ if(!empty($infosContenus))
 }
 else
 {
-	
+
         echo '<p>  Il n y \' a aucun articles actuelement Sur le site
 	           <p>';
 }
 
 ?>
 
-<p class="pagination">
-
-<?php  paginationListe($page ,$nbre_pages, 'index.php') ; ?>
-
-</p>
+<ul class="pagination">
+  <?php paginationListe($page ,$nbre_pages, 'index.php'); ?>
+</ul>
 
 </div>
 

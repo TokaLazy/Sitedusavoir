@@ -48,10 +48,9 @@ $nbre_pages = ceil($nombres_contenus / $contenus_par_page);
 ?>
 
 
-<p class="page">
-<?php  paginationListe($page ,$nbre_pages, 'mescontenus.php'); ?>
-
-</p>
+<ul class="pagination">
+  <?php paginationListe($page ,$nbre_pages, 'mescontenus.php'); ?>
+</ul>
 
 <?php
 
@@ -70,8 +69,8 @@ if(!empty($infosContenus))
       $dossier = 'tutoriels/lire.php?tuto=';
     else
       $dossier = 'blog/lire.php?article=';
-   
-    echo 
+
+    echo
         '<div class="tutos">
 
               <div class="banniere">
@@ -92,7 +91,7 @@ if(!empty($infosContenus))
                         $cat = new Categorie($donnneesCat);
 
                  echo '<span class="cat-tuto">'.$cat->nom().'</span>
-              </div>  
+              </div>
 
 
          </div>';
@@ -100,19 +99,16 @@ if(!empty($infosContenus))
 }
 else
 {
-  
+
         echo '<p>  Aucun contenus pour vous pour le moment :)
              <p>';
 }
 
 ?>
 
-<p class="pagination">
-
-<?php  paginationListe($page ,$nbre_pages, 'mescontenus.php')    
-?>
-
-</p>
+<ul class="pagination">
+  <?php paginationListe($page ,$nbre_pages, 'mescontenus.php'); ?>
+</ul>
 
 </div>
 
