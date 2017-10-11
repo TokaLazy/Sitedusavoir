@@ -52,48 +52,34 @@
             <li><a href="../index.php">Accueil</a></li>
          </ul>
         <div class="page">
-              <h1 class="titre"> Bienvenue sur le Site du Savoir </h1>
-              <div class="presentation">
-                    <span class="top-btn"><a href="./forum/"> Forum </a> </span>
-                    <p class="presentation-text">
-                      Le Forum est la partie la plus communataire .
-                      elle permet au membre du site d'y discuter , chercher de l'aide ,
-                      proposer des modifications , signaler des bugs.Plusieurs forum y sont present:
-                      On en trouve un forum dedies pour les jeux videos , un forum general , et
-                      un forum dedie a l'informatique.
+          <h1 class="titre"> Bienvenue sur le Site du Savoir </h1>
 
-                    <p>
-              </div>
-              <div class="presentation">
-                    <span class="top-btn"><a href="./tutoriels/"> Tutos </a></span>
-                    <p class="presentation-text">
-                      Venez nous apprendre des nouvelles choses , que vous soyez informaticien ou non,
-                      vous possedez peut etre un domaine que vous maitrisez , venez nous en faire profiter.
-                      Partager votre savoir et aider les autres a s'ameliorer.
-
-                    <p>
-              </div>
-              <div class="presentation">
-                    <span class="top-btn"><a href="./blog/"> Blog </a> </span>
-                    <p class="presentation-text">
-                      Le blog est une autre partie du site tres importante.
-                      Elle permet de vous tenir au courant de l'activites du site.
-                      Entre autres les nouvelles fonctionnalites apporte , les propositions d'amelioration,
-                      et notament les sortis de s versions du sites
-
-                    <p>
-              </div>
-              <div class="presentation">
-                    <span class="top-btn"><a href="./social/"> Social </a> </span>
-                    <p class="presentation-text">
-                     Social,Reseau social tres basique , sans aucune pretention , vous pouvez faires des
-                     statuts , des publications , partages votre humeurs vos photos .Vous pouvez creer des groupes ,
-                     les administrer , ajouter d'autres administrateurs , publier du contenu
-
-                    <p>
-              </div>
-
-
+          <ul class="presentation">
+            <li class="presentation__block">
+              <a class="presentation__link" href="" alt="">Forum</a>
+              <p class="presentation__text">
+                Le Forum est la partie la plus communataire.  elle permet au membre du site d'y discuter, chercher de l'aide, proposer des modifications, signaler des bugs.Plusieurs forum y sont present: On en trouve un forum dedies pour les jeux videos, un forum general, et un forum dedie a l'informatique.
+              </p>
+            </li>
+            <li class="presentation__block">
+              <a class="presentation__link" href="" alt="">Tutos</a>
+              <p class="presentation__text">
+                Venez nous apprendre des nouvelles choses, que vous soyez informaticien ou non, vous possedez peut etre un domaine que vous maitrisez, venez nous en faire profiter. Partager votre savoir et aider les autres a s'ameliorer.
+              </p>
+            </li>
+            <li class="presentation__block">
+              <a class="presentation__link" href="" alt="">Blog</a>
+              <p class="presentation__text">
+                Le blog est une autre partie du site tres importante. Elle permet de vous tenir au courant de l'activites du site. Entre autres les nouvelles fonctionnalites apporte, les propositions d'amelioration, et notament les sortis de s versions du sites.
+              </p>
+            </li>
+            <li class="presentation__block">
+              <a class="presentation__link" href="" alt="">Social</a>
+              <p class="presentation__text">
+                Social, Reseau social tres basique, sans aucune pretention, vous pouvez faires des statuts, des publications, partages votre humeurs vos photos. Vous pouvez creer des groupes, les administrer, ajouter d'autres administrateurs, publier du contenu.
+              </p>
+            </li>
+          </ul>
         </div>
      <?php
          include  "./includes/footer.php";
