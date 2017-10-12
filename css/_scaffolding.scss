@@ -2,32 +2,14 @@
   box-sizing: border-box;
 }
 
-body, html {
-  width: 100%;
+body {
   margin: 0;
-  padding: 0;
-}
-
-h1 a {
-  display: block;
-  color: white;
-  font-family: 'Lucida Sans Unicode';
 }
 
 ul {
-  display: block;
   padding-right: 10px;
   padding-left: 10px;
-  list-style-type: none;
-}
-
-li > a {
-  display: block;
-  width: 102px;
-  height: 40px;
-  color: white;
-  font-family: Gadugi;
-  font-size: 16px;
+  list-style: none;
 }
 
 fieldset {
@@ -46,7 +28,11 @@ legend {
   text-align: center;
 }
 
+input, textarea, select, button {
+  font-size: .9em;
+}
+
 a {
   text-decoration: none;
-  cursor: pointer;
+  color: inherit;
 }
