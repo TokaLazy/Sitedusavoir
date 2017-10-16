@@ -1,113 +1,77 @@
 <?php
 
-echo '<body>
-           <header>
-		        <div class="header-top">
-		             <h1 class="nomSite"><a href="../index.php"> Site du Savoir </a> </h1>
-		       </div>
-		       <div class="menu">
-		             <ul class="menu-content">
-		                 <li><a href="../forum/index.php"> Forum </a></li>
-		                 <li><a href="../tutoriels/index.php"> Tutoriels </a></li>
-		                 <li><a href="../blog/index.php"> Blog </a></li>
-		             </ul>
-		       </div>
+if (session_status() == PHP_SESSION_NONE)
+{
+  session_start();
+}
 
-		       <div class="search">
-		             <form method="GET" action="../search.php">
-		                   <div class="form-content">
-		                        <div class="input-search">
-		                            <input type="text" name="q" value="Rechercher">
-		                        </div>
-		                        <div class="button-search">
-		                           <button type="submit">
-		                                 <img src="../images/icones/search.png" alt="Q"/>
-		                          </button>   
-		                      </div>
-		                   </div>
-		             </form>
-		       </div>
+$managerMembre = new ManagerMembre($bdd);
 
-		       <div class="suscribe">';
+$donnees = $managerMembre->infosMembre($id);
+$membre  = new Membre($donnees);
 
-		          $managerMembre = new ManagerMembre($bdd);
+$avatar = $membre->avatar();
 
-		          if(!$id)
-		          {
-			           echo  '<ul class="suscribe-content">
-				                  <li><a  href="../register.php"> S\'inscrire </a></li>
-				                  <li><a href="../connexion.php"> Se connecter </a></li>
-			                 </ul>';
-			      }
-			      else
-			      {
+?>
 
-			      	
-			      	$donnees = $managerMembre->infosMembre($id);
-			      	$membre  = new Membre($donnees);
+<body>
+  <header class="header">
+    <h1 class="header__logo"><a href="./index.php">Site du Savoir</a></h1>
 
-			      	$avatar = $membre->avatar();
+    <nav class="header__nav">
+      <a href="../forum/index.php">Forum</a>
+      <a href="../tutoriels/index.php">Tutoriels</a>
+      <a href="../blog/index.php">Blog</a>
+    </nav>
 
-                      echo '<div class="cercle">
+    <form class="header__search" action="../search.php" method="get">
+      <div class="header__search-bar">
+        <input type="text" name="q" placeholder="Rechercher">
+        <button type="submit">
+          <img src="../images/icones/search.png" alt="">
+        </button>
+      </div>
+    </form>
 
-                                 <ul>
+    <?php if (!$id) : ?>
 
-                                   <li class="first">
-                                       <a href="../membre/voirmonprofil.php?id='.$id.'"><img src="../images/avatars/'.$avatar.'" alt="avatar"/></a>
+    <ul class="header__subscribe">
+      <li><a href="../register.php">S'inscrire</a></li>
+      <li><a href="../connexion.php">Se connecter</a></li>
+    </ul>
 
-		                                 <ul> 
-		                                           <li>
-		                                               <a href="../membre/editerprofil.php?id='.$id.'">Parametres</a>
-		                                          </li>
+    <?php else : ?>
 
-		                                          <li>
-		                                              <a href="../membre/amis.php">Amis</a>
-		                                          </li>
+    <ul class="header__member">
+      <li class="header__avatar">
+        <a href="../membre/voirmonprofil.php?id=<?=$id?>">
+          <img src="../images/avatars/<?=$avatar?>" alt="avatar">
+        </a>
+        <div class="header__menu">
+          <ul>
+            <li><a href="../membre/editerprofil.php?id=<?=$id?>">Parametres</a></li>
+            <li><a href="../membre/amis.php">Amis</a></li>
+            <li><a href="../membre/messagesprives.php">Messages</a></li>
+            <li><a href="../membre/notifications.php">Notiffications</a></li>
+            <li><a href="../membre/mescontenus.php">Mes Contenus</a></li>
+            <li><a href="../deconnexion.php">Se deconnecter</a></li>
+          </ul>
+        </div>
+      </li>
+    </div>
 
-		                                          <li>
-		                                               <a href="../membre/messagesprives.php">Messages</a>
-		                                          </li>
+    <?php endif; ?>
 
-		                                          <li>
-		                                                <a href="../membre/notifications.php">Notiffications </a>
-		                                          </li>
+  </header>
 
-		                                          <li>
-		                                                <a href="../membre/mescontenus.php"> Mes Contenus </a>
-		                                          </li>
+  <?php if (isset($_SESSION['flash'])) : ?>
+    <?php foreach ($_SESSION['flash'] as $key => $message) : ?>
+      <div class="alert-<?=$key?>">
+        <?=$message?>
+      </div>
+    <?php endforeach; ?>
+  <?php endif; ?>
 
-		                                          <li>
-		                                                <a href="../deconnexion.php"> Se deconnecter </a>
-		                                          </li>
-		                                 </ul>
-		                            </li>
-		                            </ul>     
-                           </div>';
-			      }
+<?php
 
-		       echo '</div>
-           </header>';
-
-         if (session_status() == PHP_SESSION_NONE)
-                 session_start();
-          ?>
-           <?php if(isset($_SESSION['flash'])): ?>
-
-      <?php foreach($_SESSION['flash'] as $cle => $message): ?>
-
-        <div class="alert alert-<?=$cle ?>">
-                <?= $message; ?>
-           </div>
-
-        <?php endforeach; ?>
-
-        <?php unset($_SESSION['flash']); ?>
-
-        <?php endif; ?>   
-
-        
-
-
-
-
-
+unset($_SESSION['flash']);

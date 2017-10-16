@@ -14,17 +14,17 @@ include("includes/menu.php");
 
   //On récupère la valeur de s
 
-  if (isset($_POST['s'])) 
+  if (isset($_POST['s']))
     $sort = $convert_order[$_POST['s']];
 
-  else 
+  else
     $sort = $convert_order[0];
 
   //On récupère la valeur de t
-  if (isset($_POST['t'])) 
+  if (isset($_POST['t']))
     $tri = $convert_tri[$_POST['t']];
 
-  else 
+  else
     $tri = $convert_tri[0];
 
   $managerMembre = new ManagerMembre($bdd);
@@ -45,21 +45,21 @@ include("includes/menu.php");
   $page = (isset($_GET['page']))?intval($_GET['page']):1;
 
   //On affiche les pages 1-2-3, etc.
-  echo '<p class="pagination">';
+  echo '<ul class="pagination">';
 
   for ($i = 1 ; $i <= $NombreDePages ; $i++)
   {
     if ($i == $page) //On ne met pas de lien sur la page actuelle
     {
-      echo '<strong>'.$i.'</strong>';
+      echo '<a class="current" href="memberlist.php?page='.$i.'">'.$i.'</a>';
     }
     else
     {
-      echo'<a href="memberlist.php?page='.$i.'">'.$i.'</a>';
+      echo '<a href="memberlist.php?page='.$i.'">'.$i.'</a>';
     }
   }
 
-  echo '</p>';
+  echo '</ul>';
 
   $premier = ($page - 1) * $MembreParPage;
 
@@ -137,10 +137,10 @@ include("includes/menu.php");
       <td>'.$membre->inscrit().'</td>
       <td>'.$membre->visite().'</td>';
 
-    if (!$enLigne->online_id()) 
+    if (!$enLigne->online_id())
       echo '<td>non</td>';
 
-    else 
+    else
       echo '<td>oui</td>';
 
     echo '</tr>';

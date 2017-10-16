@@ -95,9 +95,9 @@ echo '<ul class="fildariane">
 
 //On affiche les pages 1-2-3 etc...
 
-echo '<p class="pagination">';
+echo '<ul class="pagination">';
            paginationListe($page ,$nombreDePages, 'voirtopic.php?t='.$topic->id()) ;
-echo'</p>';
+echo '</ul>';
 
 
 $premierMessageAafficher = ($page - 1) * $nombreDeMessagesParPage;
@@ -163,7 +163,7 @@ else
 
                <p class="top-messagef">
                   <a href="./voirprofil.php?m='.$membre->id().'&amp;action=consulter">
-                    '.stripslashes(htmlspecialchars($membre->pseudo())).'</a> <span>  le '.$post->posttime().'</span>
+                    '.stripslashes(htmlspecialchars($membre->pseudo())).'</a> <span> Il y\'a '.afficherDate($post->posttime()).'</span>
                </p>';
 
                     /* Si on est l'auteur du message, on affiche des liens pour
@@ -236,9 +236,9 @@ else
             </div>';
        }
 
-    echo '<p class="pagination">';
+    echo '<ul class="pagination">';
            paginationListe($page ,$nombreDePages, 'voirtopic.php?t='.$topic->id());
-    echo'</p>';
+    echo'</ul>';
 
     if (Membre::verif_auth($forum->auth_post()))
     {
